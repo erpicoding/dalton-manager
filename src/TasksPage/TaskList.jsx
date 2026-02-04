@@ -110,13 +110,6 @@ function TaskList() {
     },
     {
       description:
-        "1. Stelle das Verhältnis von Kirche und Staat im Laufe der Zeit grafisch dar. − Römisches Reich unter Konstantin − Anglikanische Kirche im 16. Jahrhundert − NS-Zeit 2. Stelle die vier Stufen des Widerstands in eigenen Worten dar. Notiere Stichpunkte. (01D_Widerstand)  3. Eure Schule plant eine Ausstellung zum Thema „Widerstand im Nationalsozialismus“. Gestalte(t) alleine oder zu zweit ein Poster zum Gedenken an einen Widerstandskämpfer / eine Widerstandskämpferin / eine Widerstandsgruppe eurer Wahl. Beachte die angebenden Fragestellungen und Kriterien. Das Poster soll folgende Fragen aufgreifen: Wer war die Person bzw. Gruppierung? Was war ihre / seine Rolle in der NS-Zeit? Inwiefern wurde Widerstand gegen das Regime geleistet? In welche Stufe lässt sich das Handeln in die Stufen des Widerstands einordnen? Inwiefern betrifft mich das Handeln dieser Person bzw. Gruppierung noch heute? (02D_Widerstand Poster)",
-      fach: "Religion (Hn)",
-      weeks: [21, 22, 23, 24, 25, 26, 27],
-      finished: false
-    },
-    {
-      description:
         "Bearbeite das Arbeitsblatt „AB_Globalisierung der Esskultur“.",
       fach: "Erdkunde (Do)",
       weeks: [21],
@@ -155,6 +148,47 @@ function TaskList() {
         "Wiederholung Argumenttypen (S. 64) und Zuordnung in der Tabelle aus dem Fachunterricht (Thema E-Scooter-Verbot); erst nach dem Fachunterricht möglich! Scheinargumente erkennen und entkräften Testet euch (Buch, S. 73 Aufgabe 1 bearbeiten). Argumente (Thema: Veggie-Days) gewichten und Erörterung schreiben (in Einzelarbeit; mit Textbezügen) Nicht vor dem Fachunterricht in Woche 24 (Methode Ping-Pong) anfangen!",
       fach: "Deutsch (Dk)",
       weeks: [23, 24],
+      finished: false
+    },
+    {
+      description:
+        "Recherchiere im Internet die Fabeln des Phaedrus auf Deutsch. Suche eine aus, die dir gefällt. Lerne sie so „auswendig“, dass du sie im Kurs im Fachunterricht erzählen kannst (nicht wörtlich, aber in der richtigen Reihenfolge und sicher). ",
+      fach: "Latein (Ah)",
+      weeks: [21],
+      finished: false
+    },
+    {
+      description: "Übung nd-Formen: Buch S. 81 Nr. 3 (1,2,3)",
+      fach: "Latein (Ah)",
+      weeks: [22],
+      finished: false
+    },
+    {
+      description:
+        "Übung zu nolle: Buch S. 81, Nr. 5. Verfasse eine kurze Interpretation zu vulpes et corbus!",
+      fach: "Latein (Ah)",
+      weeks: [23],
+      finished: false
+    },
+    {
+      description:
+        " Bereite eine Präsentation einer Fabel für den Fachunterricht vor. Arbeitsschritte: Analysiere in Partnerarbeit eine Fabel des Phaedrus auf Deutsch. Bilde die gelernten Gliederungsabschnitte bei Fabeln. Bereite eine Interpretation von der Fabel vor! Erstelle eine PPP. ",
+      fach: "Latein (Ah)",
+      weeks: [24],
+      finished: false
+    },
+    {
+      description:
+        "Entwickelt ein Lernvideo zu einer europäischen Institution. Rat der Europäischen Union / Ministerrat -->	Giulian, Anna, Aly, Erik",
+      fach: "Politik und Wirtschaft (Ws)",
+      weeks: [21, 22, 23, 24],
+      finished: false
+    },
+    {
+      description:
+        "1. Stelle das Verhältnis von Kirche und Staat im Laufe der Zeit grafisch dar. − Römisches Reich unter Konstantin − Anglikanische Kirche im 16. Jahrhundert − NS-Zeit 2. Stelle die vier Stufen des Widerstands in eigenen Worten dar. Notiere Stichpunkte. (01D_Widerstand)  3. Eure Schule plant eine Ausstellung zum Thema „Widerstand im Nationalsozialismus“. Gestalte(t) alleine oder zu zweit ein Poster zum Gedenken an einen Widerstandskämpfer / eine Widerstandskämpferin / eine Widerstandsgruppe eurer Wahl. Beachte die angebenden Fragestellungen und Kriterien. Das Poster soll folgende Fragen aufgreifen: Wer war die Person bzw. Gruppierung? Was war ihre / seine Rolle in der NS-Zeit? Inwiefern wurde Widerstand gegen das Regime geleistet? In welche Stufe lässt sich das Handeln in die Stufen des Widerstands einordnen? Inwiefern betrifft mich das Handeln dieser Person bzw. Gruppierung noch heute? (02D_Widerstand Poster)",
+      fach: "Religion (Hn)",
+      weeks: [21, 22, 23, 24, 25, 26, 27],
       finished: false
     }
   ];

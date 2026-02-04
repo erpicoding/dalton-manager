@@ -1,6 +1,6 @@
 function noListItems() {
   return (
-    <div className="noListItems">
+    <div className="error">
       <p>
         Keine Dalton-Aufgaben vorhanden!
         <br />
