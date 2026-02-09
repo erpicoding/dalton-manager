@@ -27,6 +27,11 @@ html {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+#root {
+  position: relative;
+  min-height: 100vh;
+}
+
 p {
   margin: 8px;
   color: $txt1-main;
@@ -95,7 +100,14 @@ nav {
   }
 }
 
+main {
+  min-height: calc(100vh - 164px);
+}
+
 footer {
+  position: absolute;
+  bottom: 0px;
+
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -104,7 +116,6 @@ footer {
   background-color: $bg2-middle;
   font-size: 16px;
   margin-top: 20px;
-  margin-bottom: 0px;
   width: 100%;
   height: 60px;
 
@@ -146,14 +157,13 @@ footer {
   }
 }
 
-.searchTasks {
-  height: 20px;
-  width: 800px;
-  padding: 16px;
+input {
+  height: 16px;
+  padding: 8px;
 
   background-color: $bg2-middle;
   color: $txt1-main !important;
-  font-size: 22px;
+  font-size: 18px;
 
   border: 2px solid $border;
   border-radius: 8px;
@@ -161,6 +171,33 @@ footer {
     outline: none;
     border: 2px solid rgb(0, 149, 255);
   }
+}
+
+textarea {
+  display: block;
+
+  height: 80px;
+  padding: 16px;
+  margin: 16px;
+
+  background-color: $bg2-middle;
+  color: $txt1-main !important;
+  font-size: 18px;
+
+  border: 2px solid $border;
+  border-radius: 8px;
+  &:focus {
+    outline: none;
+    border: 2px solid rgb(0, 149, 255);
+  }
+}
+
+.searchTasks {
+  height: 20px;
+  width: 800px;
+  padding: 16px;
+
+  font-size: 22px;
 }
 .searchHighlight {
   color: rgb(0, 255, 0);
@@ -197,7 +234,26 @@ footer {
   }
 }
 
+#newTaskModal {
+  margin: auto;
+  background-color: $bg2-middle;
+  border: 4px solid $border;
+  border-radius: 16px;
+  padding: 16px;
+
+  h3 {
+    color: $txt1-main;
+    padding: 8px;
+    text-align: center;
+  }
+
+  &::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
 .error {
+  width: 600px;
   margin-top: 40px;
   padding: 8px;
   background-color: hsla(0, 100%, 50%, 0.4);
@@ -211,6 +267,7 @@ footer {
   }
 }
 .warning {
+  width: 600px;
   margin-top: 40px;
   padding: 8px;
   background-color: hsla(57, 100%, 50%, 0.4);

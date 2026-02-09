@@ -9,6 +9,11 @@ html {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+#root {
+  position: relative;
+  min-height: 100vh;
+}
+
 p {
   margin: 8px;
   color: hsl(0, 0%, 95%);
@@ -70,7 +75,13 @@ nav a img {
   background-color: #ff6033;
 }
 
+main {
+  min-height: calc(100vh - 164px);
+}
+
 footer {
+  position: absolute;
+  bottom: 0px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -78,7 +89,6 @@ footer {
   background-color: hsl(0, 0%, 10%);
   font-size: 16px;
   margin-top: 20px;
-  margin-bottom: 0px;
   width: 100%;
   height: 60px;
   position: relative;
@@ -114,19 +124,41 @@ footer a {
   background-color: hsl(0, 0%, 30%);
 }
 
+input {
+  height: 16px;
+  padding: 8px;
+  background-color: hsl(0, 0%, 10%);
+  color: hsl(0, 0%, 95%) !important;
+  font-size: 18px;
+  border: 2px solid hsl(0, 0%, 30%);
+  border-radius: 8px;
+}
+input:focus {
+  outline: none;
+  border: 2px solid rgb(0, 149, 255);
+}
+
+textarea {
+  display: block;
+  height: 80px;
+  padding: 16px;
+  margin: 16px;
+  background-color: hsl(0, 0%, 10%);
+  color: hsl(0, 0%, 95%) !important;
+  font-size: 18px;
+  border: 2px solid hsl(0, 0%, 30%);
+  border-radius: 8px;
+}
+textarea:focus {
+  outline: none;
+  border: 2px solid rgb(0, 149, 255);
+}
+
 .searchTasks {
   height: 20px;
   width: 800px;
   padding: 16px;
-  background-color: hsl(0, 0%, 10%);
-  color: hsl(0, 0%, 95%) !important;
   font-size: 22px;
-  border: 2px solid hsl(0, 0%, 30%);
-  border-radius: 8px;
-}
-.searchTasks:focus {
-  outline: none;
-  border: 2px solid rgb(0, 149, 255);
 }
 
 .searchHighlight {
@@ -162,7 +194,24 @@ footer a {
   left: 600px;
 }
 
+#newTaskModal {
+  margin: auto;
+  background-color: hsl(0, 0%, 10%);
+  border: 4px solid hsl(0, 0%, 30%);
+  border-radius: 16px;
+  padding: 16px;
+}
+#newTaskModal h3 {
+  color: hsl(0, 0%, 95%);
+  padding: 8px;
+  text-align: center;
+}
+#newTaskModal::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 .error {
+  width: 600px;
   margin-top: 40px;
   padding: 8px;
   background-color: hsla(0, 100%, 50%, 0.4);
@@ -176,6 +225,7 @@ footer a {
 }
 
 .warning {
+  width: 600px;
   margin-top: 40px;
   padding: 8px;
   background-color: hsla(57, 100%, 50%, 0.4);
