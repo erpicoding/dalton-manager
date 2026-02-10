@@ -27,33 +27,28 @@ html {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#root {
-  position: relative;
-  min-height: 100vh;
-}
-
 p {
   margin: 8px;
   color: $txt1-main;
+  white-space: pre-line;
 }
 button {
   display: inline-flex;
   flex-direction: row;
   align-items: center;
 
-  height: 40px;
-  padding: 0px 20px;
+  height: 32px;
+  padding: 0px 12px;
   background-color: $bg3-light;
   color: $txt1-main;
 
   border: 2px solid $border;
   border-radius: 20px;
 
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 18px;
 
   img {
-    height: 40px;
+    height: 32px;
   }
 }
 
@@ -62,7 +57,7 @@ header {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 12px;
+  padding: 8px;
 
   background-color: $bg2-middle;
 }
@@ -92,6 +87,7 @@ nav {
   color: white;
   border: 2px solid #ff6033;
 
+  height: 36px;
   font-size: 20px;
   font-weight: 600;
 
@@ -101,7 +97,7 @@ nav {
 }
 
 main {
-  min-height: calc(100vh - 164px);
+  min-height: calc(100vh - 148px);
 }
 
 footer {
@@ -131,15 +127,13 @@ footer {
   flex-direction: row;
   gap: 20px;
 
-  margin: 20px;
+  margin: 12px;
 
   .buttonImp {
     background-color: rgb(0, 111, 190);
     color: white;
     border: 2px solid rgb(0, 149, 255);
 
-    font-size: 20px;
-    font-weight: 600;
     &:hover {
       background-color: rgb(0, 149, 255);
     }
@@ -147,9 +141,6 @@ footer {
   .buttonNormal {
     background-color: $bg3-light;
     color: white;
-
-    font-size: 20px;
-    font-weight: 600;
 
     &:hover {
       background-color: $border;
@@ -197,9 +188,11 @@ textarea {
 .searchTasks {
   height: 20px;
   width: 800px;
-  padding: 16px;
 
-  font-size: 22px;
+  margin: 0px;
+  padding: 8px;
+
+  font-size: 20px;
 }
 .searchHighlight {
   color: rgb(0, 255, 0);
