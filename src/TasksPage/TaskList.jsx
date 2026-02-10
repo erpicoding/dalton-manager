@@ -10,7 +10,7 @@ function TaskList({ tasks, setTasks }) {
     id: 0
   };
 
-  let finishedFilterType = false;
+  const [finishedFilterType, setFinishedFilterType] = useState(false);
 
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -27,6 +27,14 @@ function TaskList({ tasks, setTasks }) {
         </span>
       ) : (
         part
+      )
+    );
+  }
+
+  function finishTask(taskID) {
+    setTasks((prevTasks) =>
+      prevTasks.map((task) =>
+        task.id === taskID ? { ...task, finished: true } : task
       )
     );
   }
@@ -64,6 +72,7 @@ function TaskList({ tasks, setTasks }) {
             </span>
           </h3>
           <p>{highlightText(task.description, searchTerm)}</p>
+          <button onClick={() => finishTask(task.id)}>Abhaken</button>
         </div>
       ));
 
@@ -76,7 +85,18 @@ function TaskList({ tasks, setTasks }) {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <h2>Nächste Dalton-Aufgaben: </h2>
+        <div className="filter">
+          <span>Filter: </span>
+          {finishedFilterType ? (
+            <button onClick={() => setFinishedFilterType(false)}>
+              fertige Aufgaben
+            </button>
+          ) : (
+            <button onClick={() => setFinishedFilterType(true)}>
+              aktuelle Aufgaben
+            </button>
+          )}
+        </div>
         {TasksMapped.length == 0 ? <NoListItems /> : TasksMapped}
       </div>
     );
