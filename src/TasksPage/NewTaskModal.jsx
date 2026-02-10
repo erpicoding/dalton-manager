@@ -10,7 +10,11 @@ function NewTaskModal({ dialogRef, tasks, setTasks }) {
 
   function createTask() {
     const startWeek = Number(startWeekRef.current.value);
-    const endWeek = Number(endWeekRef.current.value);
+    let endWeek;
+
+    endWeekRef.current.value == ""
+      ? (endWeek = Number(startWeekRef.current.value))
+      : (endWeek = Number(endWeekRef.current.value));
 
     const weeks = [];
     for (let i = startWeek; i <= endWeek; i++) {
@@ -25,6 +29,11 @@ function NewTaskModal({ dialogRef, tasks, setTasks }) {
       id: newID()
     };
 
+    descriptionRef.current.value = "";
+    fachRef.current.value = "";
+    startWeekRef.current.value = "";
+    endWeekRef.current.value = "";
+
     setTasks((previousTasks) => [...previousTasks, newTask]);
 
     dialogRef.current.close();
@@ -37,12 +46,19 @@ function NewTaskModal({ dialogRef, tasks, setTasks }) {
       <input ref={fachRef} type="text" placeholder="Fach (Lehrer)" />
       <input ref={startWeekRef} type="text" placeholder="Lernwoche Start" />
       <input ref={endWeekRef} type="text" placeholder="Lernwoche Ende" />
-      <textarea ref={descriptionRef}></textarea>
+      <textarea
+        ref={descriptionRef}
+        placeholder="Aufgaben Beschreibung"
+      ></textarea>
 
-      <form method="dialog">
-        <button>Schließen</button>
-      </form>
-      <button onClick={createTask}>Aufgabe erstellen</button>
+      <div className="buttonRow">
+        <form method="dialog">
+          <button className="buttonNormal">Schließen</button>
+        </form>
+        <button className="buttonImp" onClick={createTask}>
+          Aufgabe erstellen
+        </button>
+      </div>
     </dialog>
   );
 }

@@ -98,35 +98,36 @@ footer a {
   color: hsl(0, 0%, 95%);
 }
 
-.controlButtons {
+.buttonRow {
   display: flex;
   flex-direction: row;
   gap: 20px;
   margin: 20px;
 }
-.controlButtons .button-new {
+.buttonRow .buttonImp {
   background-color: rgb(0, 111, 190);
   color: white;
   border: 2px solid rgb(0, 149, 255);
   font-size: 20px;
   font-weight: 600;
 }
-.controlButtons .button-new:hover {
+.buttonRow .buttonImp:hover {
   background-color: rgb(0, 149, 255);
 }
-.controlButtons .button-upload {
+.buttonRow .buttonNormal {
   background-color: hsl(0, 0%, 20%);
   color: white;
   font-size: 20px;
   font-weight: 600;
 }
-.controlButtons .button-upload:hover {
+.buttonRow .buttonNormal:hover {
   background-color: hsl(0, 0%, 30%);
 }
 
 input {
   height: 16px;
   padding: 8px;
+  margin: 8px;
   background-color: hsl(0, 0%, 10%);
   color: hsl(0, 0%, 95%) !important;
   font-size: 18px;
@@ -140,9 +141,10 @@ input:focus {
 
 textarea {
   display: block;
-  height: 80px;
+  height: 200px;
+  width: calc(100% - 50px);
   padding: 16px;
-  margin: 16px;
+  margin: 8px;
   background-color: hsl(0, 0%, 10%);
   color: hsl(0, 0%, 95%) !important;
   font-size: 18px;
@@ -196,6 +198,7 @@ textarea:focus {
 
 #newTaskModal {
   margin: auto;
+  overflow-x: hidden;
   background-color: hsl(0, 0%, 10%);
   border: 4px solid hsl(0, 0%, 30%);
   border-radius: 16px;

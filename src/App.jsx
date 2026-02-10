@@ -12,7 +12,7 @@ function App() {
     <>
       <Header />
       <main>
-        <BrowserRouter basename="/dalton">
+        <BrowserRouter>
           <Routes>
             <Route path="/" element={<TasksPage />} />
             <Route path="/timetable" element={<TimetablePage />} />

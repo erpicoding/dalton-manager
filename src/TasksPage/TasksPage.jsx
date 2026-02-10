@@ -21,12 +21,12 @@ function TaskPage() {
 
   return (
     <>
-      <div className="controlButtons">
-        <button className="button-new" onClick={openModal}>
+      <div className="buttonRow">
+        <button className="buttonImp" onClick={openModal}>
           <img src={newTaskIcon} alt="Icon" />
           Neue Dalton-Aufgabe
         </button>
-        <button className="button-upload">Dalton-Plan hochladen</button>
+        <button className="buttonNormal">Dalton-Plan hochladen</button>
       </div>
       <TaskList tasks={tasks} setTasks={setTasks} />
       <NewTaskModal dialogRef={dialogRef} tasks={tasks} setTasks={setTasks} />
