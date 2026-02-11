@@ -57,6 +57,7 @@ function TaskList({ tasks, setTasks }) {
             .includes(searchTerm.toLowerCase())
       )
       .sort((a, b) => a.weeks[0] - b.weeks[0])
+      .sort((a, b) => a.weeks.length - b.weeks.length)
       .map((task) => (
         <div className="task" key={task.id}>
           <h3>
