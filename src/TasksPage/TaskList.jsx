@@ -32,10 +32,16 @@ function TaskList({ tasks, setTasks }) {
   }
 
   function finishTask(taskID) {
-    setTasks((prevTasks) =>
-      prevTasks.map((task) =>
+    setTasks((previousTasks) =>
+      previousTasks.map((task) =>
         task.id === taskID ? { ...task, finished: true } : task
       )
+    );
+  }
+
+  function deleteTask(taskID) {
+    setTasks((previousTasks) =>
+      previousTasks.filter((task) => task.id !== taskID)
     );
   }
 
@@ -72,7 +78,10 @@ function TaskList({ tasks, setTasks }) {
             </span>
           </h3>
           <p>{highlightText(task.description, searchTerm)}</p>
-          <button onClick={() => finishTask(task.id)}>Abhaken</button>
+          <div className="buttonRow">
+            <button onClick={() => finishTask(task.id)}>Abhaken</button>
+            <button onClick={() => deleteTask(task.id)}>Löschen</button>
+          </div>
         </div>
       ));
 
