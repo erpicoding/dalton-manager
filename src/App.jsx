@@ -16,7 +16,7 @@ function App() {
           <Routes>
             <Route path="/" element={<TasksPage />} />
             <Route path="/timetable" element={<TimetablePage />} />
-            <Route path="/dalton/settings" element={<SettingsPage />} />
+            <Route path="/settings" element={<SettingsPage />} />
             <Route path="/login" element={<LoginPage />} />
           </Routes>
         </BrowserRouter>
