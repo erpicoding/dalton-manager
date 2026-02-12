@@ -5,9 +5,9 @@ import NewTaskModal from "./NewTaskModal.jsx";
 import newTaskIcon from "/src/assets/newTaskIcon.png";
 
 function TaskPage() {
-  const dialogRef = useRef();
+  const dialogNewRef = useRef();
   function openModal() {
-    dialogRef.current.showModal();
+    dialogNewRef.current.showModal();
   }
 
   const [tasks, setTasks] = useState(() => {
@@ -29,7 +29,11 @@ function TaskPage() {
         <button className="buttonNormal">Dalton-Plan hochladen</button>
       </div>
       <TaskList tasks={tasks} setTasks={setTasks} />
-      <NewTaskModal dialogRef={dialogRef} tasks={tasks} setTasks={setTasks} />
+      <NewTaskModal
+        dialogNewRef={dialogNewRef}
+        tasks={tasks}
+        setTasks={setTasks}
+      />
     </>
   );
 }

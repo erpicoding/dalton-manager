@@ -1,18 +1,14 @@
+import { useRef, useState } from "react";
+
 import NoListItems from "./NoListItems.jsx";
-import { useState } from "react";
+import EditTaskModal from "./EditTaskModal.jsx";
 
 function TaskList({ tasks, setTasks }) {
-  const emptyobject = {
-    description: "",
-    fach: "Fach (LehrerKürzel)",
-    weeks: [21],
-    finished: false,
-    id: 0
-  };
+  const dialogEditRef = useRef();
 
   const [finishedFilterType, setFinishedFilterType] = useState(false);
-
   const [searchTerm, setSearchTerm] = useState("");
+  const [editingTaskId, setEditingTaskId] = useState(null);
 
   //text Unterstreichen beim Suchen
   function highlightText(text, searchTerm) {
@@ -27,21 +23,24 @@ function TaskList({ tasks, setTasks }) {
         </span>
       ) : (
         part
-      )
+      ),
     );
   }
 
   function finishTask(taskID) {
     setTasks((previousTasks) =>
       previousTasks.map((task) =>
-        task.id === taskID ? { ...task, finished: true } : task
-      )
+        task.id === taskID ? { ...task, finished: true } : task,
+      ),
     );
   }
-
+  function editTask(taskID) {
+    setEditingTaskId(taskID);
+    dialogEditRef.current.showModal();
+  }
   function deleteTask(taskID) {
     setTasks((previousTasks) =>
-      previousTasks.filter((task) => task.id !== taskID)
+      previousTasks.filter((task) => task.id !== taskID),
     );
   }
 
@@ -54,7 +53,7 @@ function TaskList({ tasks, setTasks }) {
           [task.fach, task.description]
             .join(" ")
             .toLowerCase()
-            .includes(searchTerm.toLowerCase())
+            .includes(searchTerm.toLowerCase()),
       )
       .sort((a, b) => a.weeks.length - b.weeks.length)
       .sort((a, b) => a.weeks[0] - b.weeks[0])
@@ -81,34 +80,43 @@ function TaskList({ tasks, setTasks }) {
           <p>{highlightText(task.description, searchTerm)}</p>
           <div className="buttonRow">
             <button onClick={() => finishTask(task.id)}>Abhaken</button>
+            <button onClick={() => editTask(task.id)}>Bearbeiten</button>
             <button onClick={() => deleteTask(task.id)}>Löschen</button>
           </div>
         </div>
       ));
 
     return (
-      <div className="taskList">
-        <input
-          className="searchTasks"
-          type="text"
-          placeholder="Dalton-Aufgaben suchen…"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-        <div className="filter">
-          <span>Filter: </span>
-          {finishedFilterType ? (
-            <button onClick={() => setFinishedFilterType(false)}>
-              fertige Aufgaben
-            </button>
-          ) : (
-            <button onClick={() => setFinishedFilterType(true)}>
-              aktuelle Aufgaben
-            </button>
-          )}
+      <>
+        <div className="taskList">
+          <input
+            className="searchTasks"
+            type="text"
+            placeholder="Dalton-Aufgaben suchen…"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <div className="filter">
+            <span>Filter: </span>
+            {finishedFilterType ? (
+              <button onClick={() => setFinishedFilterType(false)}>
+                fertige Aufgaben
+              </button>
+            ) : (
+              <button onClick={() => setFinishedFilterType(true)}>
+                aktuelle Aufgaben
+              </button>
+            )}
+          </div>
+          {TasksMapped.length == 0 ? <NoListItems /> : TasksMapped}
         </div>
-        {TasksMapped.length == 0 ? <NoListItems /> : TasksMapped}
-      </div>
+        <EditTaskModal
+          dialogEditRef={dialogEditRef}
+          tasks={tasks}
+          setTasks={setTasks}
+          taskID={editingTaskId}
+        />
+      </>
     );
   } else {
     return (
