@@ -38,11 +38,6 @@ function TaskList({ tasks, setTasks }) {
     setEditingTaskId(taskID);
     dialogEditRef.current.showModal();
   }
-  function deleteTask(taskID) {
-    setTasks((previousTasks) =>
-      previousTasks.filter((task) => task.id !== taskID),
-    );
-  }
 
   if (tasks !== null) {
     let TasksMapped = [...tasks]
@@ -81,7 +76,6 @@ function TaskList({ tasks, setTasks }) {
           <div className="buttonRow">
             <button onClick={() => finishTask(task.id)}>Abhaken</button>
             <button onClick={() => editTask(task.id)}>Bearbeiten</button>
-            <button onClick={() => deleteTask(task.id)}>Löschen</button>
           </div>
         </div>
       ));

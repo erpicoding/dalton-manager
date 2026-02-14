@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 
 function EditTaskModal({ dialogEditRef, tasks, setTasks, taskID }) {
   const fachRef = useRef();
@@ -18,6 +18,20 @@ function EditTaskModal({ dialogEditRef, tasks, setTasks, taskID }) {
     endWeekRef.current.value = weeks[weeks.length - 1];
     descriptionRef.current.value = description;
   }, [taskID, tasks]);
+
+  function deleteTask() {
+    console.log("run DELETION ");
+    setTasks((previousTasks) =>
+      previousTasks.filter((task) => task.id !== taskID),
+    );
+
+    descriptionRef.current.value = "";
+    fachRef.current.value = "";
+    startWeekRef.current.value = "";
+    endWeekRef.current.value = "";
+
+    dialogEditRef.current.close();
+  }
 
   function editTask() {
     const startWeek = Number(startWeekRef.current.value);
@@ -69,6 +83,9 @@ function EditTaskModal({ dialogEditRef, tasks, setTasks, taskID }) {
         <form method="dialog">
           <button className="buttonNormal">Schließen</button>
         </form>
+        <button className="buttonNormal" onClick={deleteTask}>
+          Löschen
+        </button>
         <button className="buttonImp" onClick={editTask}>
           Aufgabe speichern
         </button>
