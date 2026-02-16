@@ -1,28 +1,4 @@
-$bg1-dark: hsl(0, 0%, 5%);
-$bg2-middle: hsl(0, 0%, 10%);
-$bg3-light: hsl(0, 0%, 20%);
-
-$txt1-main: hsl(0, 0%, 95%);
-$txt2-sub: hsl(0, 0%, 70%);
-
-$border: hsl(0, 0%, 30%);
-$border-light: hsl(0, 0%, 60%);
-
-$gradient: linear-gradient(0deg, var($bg2-middle), var($bg3-light));
-
-$shadow:
-  0px 2px 2px hsla(0, 0%, 0%, 0.07),
-  0px 4px 4px hsla(0, 0%, 0%, 0.15);
-$shadow-inset: inset 0 1px 2px hsl(0, 0%, 30%);
-
-$btn-imp-1-bg: rgb(0, 111, 190);
-$btn-imp-2-border: rgb(0, 149, 255);
-
-$btn-good-1-bg: hsl(110, 83%, 35%);
-$btn-good-2-border: hsl(117, 100%, 42%);
-
-$btn-bad-1-bg: hsl(0, 81%, 34%);
-$btn-bad-2-border: hsl(0, 100%, 42%);
+@use "var" as *;
 
 * {
   padding: 0;
