@@ -5,18 +5,20 @@ function EditTaskModal({ dialogEditRef, tasks, setTasks, taskID }) {
   const startWeekRef = useRef();
   const endWeekRef = useRef();
   const descriptionRef = useRef();
+  const finishedRef = useRef();
 
   let currentTask = [...tasks].find((task) => task.id == taskID);
 
   useEffect(() => {
     if (!currentTask) return;
 
-    const { fach, weeks, description } = currentTask;
+    const { fach, weeks, description, finished } = currentTask;
 
     fachRef.current.value = fach;
     startWeekRef.current.value = weeks[0];
     endWeekRef.current.value = weeks[weeks.length - 1];
     descriptionRef.current.value = description;
+    finishedRef.current.checked = finished;
   }, [taskID, tasks]);
 
   function deleteTask() {
@@ -46,11 +48,13 @@ function EditTaskModal({ dialogEditRef, tasks, setTasks, taskID }) {
       weeks.push(i);
     }
 
+    console.log("CB value is: ", finishedRef.current.checked);
+
     let newTask = {
       description: descriptionRef.current.value,
       fach: fachRef.current.value,
       weeks: weeks,
-      finished: false,
+      finished: finishedRef.current.checked,
       id: taskID,
     };
 
@@ -78,12 +82,14 @@ function EditTaskModal({ dialogEditRef, tasks, setTasks, taskID }) {
         ref={descriptionRef}
         placeholder="Aufgaben Beschreibung"
       ></textarea>
+      <input ref={finishedRef} type="checkbox" />
+      <span>Erledigt</span>
 
       <div className="buttonRow">
         <form method="dialog">
           <button className="buttonNormal">Schließen</button>
         </form>
-        <button className="buttonNormal" onClick={deleteTask}>
+        <button className="buttonBad" onClick={deleteTask}>
           Löschen
         </button>
         <button className="buttonImp" onClick={editTask}>

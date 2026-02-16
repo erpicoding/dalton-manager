@@ -26,7 +26,7 @@ function TaskPage() {
           <img src={newTaskIcon} alt="Icon" />
           Neue Dalton-Aufgabe
         </button>
-        <button className="buttonNormal">Dalton-Plan hochladen</button>
+        {/* <button className="buttonNormal">Dalton-Plan hochladen</button> */}
       </div>
       <TaskList tasks={tasks} setTasks={setTasks} />
       <NewTaskModal
