@@ -74,8 +74,12 @@ function TaskList({ tasks, setTasks }) {
           </h3>
           <p>{highlightText(task.description, searchTerm)}</p>
           <div className="buttonRow">
-            <button onClick={() => finishTask(task.id)}>Abhaken</button>
-            <button onClick={() => editTask(task.id)}>Bearbeiten</button>
+            <button onClick={() => editTask(task.id)} className="buttonNormal">
+              Bearbeiten
+            </button>
+            <button onClick={() => finishTask(task.id)} className="buttonGood">
+              &#10004;
+            </button>
           </div>
         </div>
       ));

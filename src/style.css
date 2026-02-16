@@ -1,11 +1,11 @@
 * {
   padding: 0;
   margin: 0;
+  color: hsl(0, 0%, 95%);
 }
 
 html {
   background-color: hsl(0, 0%, 5%);
-  color: hsl(0, 0%, 95%);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -102,6 +102,13 @@ footer a {
   margin: 8px;
   margin-bottom: 0;
 }
+.buttonRow .buttonNormal {
+  background-color: hsl(0, 0%, 20%);
+  color: white;
+}
+.buttonRow .buttonNormal:hover {
+  background-color: hsl(0, 0%, 30%);
+}
 .buttonRow .buttonImp {
   background-color: rgb(0, 111, 190);
   color: white;
@@ -110,12 +117,21 @@ footer a {
 .buttonRow .buttonImp:hover {
   background-color: rgb(0, 149, 255);
 }
-.buttonRow .buttonNormal {
-  background-color: hsl(0, 0%, 20%);
+.buttonRow .buttonGood {
+  background-color: hsl(110, 83%, 35%);
   color: white;
+  border: 2px solid hsl(117, 100%, 42%);
 }
-.buttonRow .buttonNormal:hover {
-  background-color: hsl(0, 0%, 30%);
+.buttonRow .buttonGood:hover {
+  background-color: hsl(117, 100%, 42%);
+}
+.buttonRow .buttonBad {
+  background-color: hsl(0, 81%, 34%);
+  color: white;
+  border: 2px solid hsl(0, 100%, 42%);
+}
+.buttonRow .buttonBad:hover {
+  background-color: hsl(0, 100%, 42%);
 }
 
 input {
@@ -131,6 +147,10 @@ input {
 input:focus {
   outline: none;
   border: 2px solid rgb(0, 149, 255);
+}
+
+input[type=checkbox] {
+  accent-color: rgb(0, 149, 255);
 }
 
 textarea {

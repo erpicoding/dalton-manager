@@ -19,8 +19,9 @@ function Header() {
           Einstellungen
         </a>
       </nav>
-
-      <button className="button-login">Login per Untis</button>
+      <a href="/login">
+        <button className="button-login">Login per Untis</button>
+      </a>
     </header>
   );
 }

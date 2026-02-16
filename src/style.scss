@@ -15,14 +15,23 @@ $shadow:
   0px 4px 4px hsla(0, 0%, 0%, 0.15);
 $shadow-inset: inset 0 1px 2px hsl(0, 0%, 30%);
 
+$btn-imp-1-bg: rgb(0, 111, 190);
+$btn-imp-2-border: rgb(0, 149, 255);
+
+$btn-good-1-bg: hsl(110, 83%, 35%);
+$btn-good-2-border: hsl(117, 100%, 42%);
+
+$btn-bad-1-bg: hsl(0, 81%, 34%);
+$btn-bad-2-border: hsl(0, 100%, 42%);
+
 * {
   padding: 0;
   margin: 0;
+  color: $txt1-main;
 }
 
 html {
   background-color: $bg1-dark;
-  color: $txt1-main;
 
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -131,21 +140,39 @@ footer {
   margin: 8px;
   margin-bottom: 0;
 
-  .buttonImp {
-    background-color: rgb(0, 111, 190);
-    color: white;
-    border: 2px solid rgb(0, 149, 255);
-
-    &:hover {
-      background-color: rgb(0, 149, 255);
-    }
-  }
   .buttonNormal {
     background-color: $bg3-light;
     color: white;
 
     &:hover {
       background-color: $border;
+    }
+  }
+  .buttonImp {
+    background-color: $btn-imp-1-bg;
+    color: white;
+    border: 2px solid $btn-imp-2-border;
+
+    &:hover {
+      background-color: $btn-imp-2-border;
+    }
+  }
+  .buttonGood {
+    background-color: $btn-good-1-bg;
+    color: white;
+    border: 2px solid $btn-good-2-border;
+
+    &:hover {
+      background-color: $btn-good-2-border;
+    }
+  }
+  .buttonBad {
+    background-color: $btn-bad-1-bg;
+    color: white;
+    border: 2px solid $btn-bad-2-border;
+
+    &:hover {
+      background-color: $btn-bad-2-border;
     }
   }
 }
@@ -163,8 +190,11 @@ input {
   border-radius: 8px;
   &:focus {
     outline: none;
-    border: 2px solid rgb(0, 149, 255);
+    border: 2px solid $btn-imp-2-border;
   }
+}
+input[type="checkbox"] {
+  accent-color: $btn-imp-2-border;
 }
 
 textarea {
