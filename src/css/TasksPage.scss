@@ -28,7 +28,10 @@
     color: $txt2-sub;
   }
 }
-
+.selectedFilter {
+  border: 2px solid $btn-imp-2-border;
+  background-color: $btn-imp-1-bg;
+}
 .taskList {
   width: 100%;
   display: flex;
