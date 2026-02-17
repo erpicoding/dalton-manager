@@ -2,7 +2,7 @@ import { useRef } from "react";
 
 import { newID } from "/src/functions.jsx";
 
-function NewTaskModal({ dialogNewRef, tasks, setTasks }) {
+function NewTaskModal({ dialogNewRef, tasks, setTasks, fächer, setFächer }) {
   const fachRef = useRef();
   const startWeekRef = useRef();
   const endWeekRef = useRef();
@@ -21,12 +21,21 @@ function NewTaskModal({ dialogNewRef, tasks, setTasks }) {
       weeks.push(i);
     }
 
+    console.log(
+      "gefundene Fächer: ",
+      [...fächer].find((fach) => fach == fachRef.current.value),
+    );
+    if ([...fächer].find((fach) => fach == fachRef.current.value) == null) {
+      console.log("neues Fach ins Array speichern");
+      setFächer([...fächer, fachRef.current.value]);
+    }
+
     let newTask = {
       description: descriptionRef.current.value,
       fach: fachRef.current.value,
       weeks: weeks,
       finished: false,
-      id: newID()
+      id: newID(),
     };
 
     descriptionRef.current.value = "";

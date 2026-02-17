@@ -1,0 +1,71 @@
+.searchTasks {
+  height: 20px;
+  width: calc(100% - 16px);
+  transform: translateX(-2px) translateY(-2px);
+  position: relative;
+  z-index: 10;
+  margin: 0px;
+  padding: 8px;
+  font-size: 20px;
+}
+
+.searchHighlight {
+  color: rgb(0, 255, 0);
+}
+
+.filter {
+  width: 800px;
+  border: 2px solid hsl(0, 0%, 30%);
+  border-radius: 8px;
+}
+.filter span {
+  padding-left: 8px;
+  font-size: 20px;
+  color: hsl(0, 0%, 70%);
+}
+
+.taskList {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.task {
+  width: 768px;
+  padding: 16px;
+  border: 2px solid hsl(0, 0%, 20%);
+  border-radius: 8px;
+}
+.task h3 {
+  position: relative;
+  width: 100%;
+  height: 20px;
+}
+.task h3 .fachTitel {
+  position: absolute;
+  left: 8px;
+}
+.task h3 .lernwochenTitel {
+  position: absolute;
+  left: 600px;
+}
+
+#newTaskModal {
+  margin: auto;
+  overflow-x: hidden;
+  background-color: hsl(0, 0%, 10%);
+  border: 4px solid hsl(0, 0%, 30%);
+  border-radius: 16px;
+  padding: 16px;
+}
+#newTaskModal h3 {
+  color: hsl(0, 0%, 95%);
+  padding: 8px;
+  text-align: center;
+}
+#newTaskModal::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}/*# sourceMappingURL=TasksPage.css.map */

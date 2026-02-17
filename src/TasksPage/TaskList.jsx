@@ -3,11 +3,15 @@ import { useRef, useState } from "react";
 import NoListItems from "./NoListItems.jsx";
 import EditTaskModal from "./EditTaskModal.jsx";
 
-function TaskList({ tasks, setTasks }) {
+function TaskList({ tasks, setTasks, fächer, setFächer }) {
   const dialogEditRef = useRef();
 
   const [finishedFilterType, setFinishedFilterType] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+
+  const currentFächer = [...new Set(tasks.map((task) => task.fach))];
+
+  const [selectedFach, setSelectedFach] = useState("all");
   const [editingTaskId, setEditingTaskId] = useState(null);
 
   //text Unterstreichen beim Suchen
@@ -42,6 +46,7 @@ function TaskList({ tasks, setTasks }) {
   if (tasks !== null) {
     let TasksMapped = [...tasks]
       .filter((task) => task.finished == finishedFilterType)
+      .filter((task) => task.fach == selectedFach || selectedFach == "all")
       .filter(
         (task) =>
           searchTerm === "" ||
@@ -87,14 +92,14 @@ function TaskList({ tasks, setTasks }) {
     return (
       <>
         <div className="taskList">
-          <input
-            className="searchTasks"
-            type="text"
-            placeholder="Dalton-Aufgaben suchen…"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
           <div className="filter">
+            <input
+              className="searchTasks"
+              type="text"
+              placeholder="Dalton-Aufgaben suchen…"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
             <span>Filter: </span>
             {finishedFilterType ? (
               <button onClick={() => setFinishedFilterType(false)}>
@@ -105,6 +110,18 @@ function TaskList({ tasks, setTasks }) {
                 aktuelle Aufgaben
               </button>
             )}
+            <select
+              value={selectedFach}
+              onChange={(e) => setSelectedFach(e.target.value)}
+            >
+              <option value="all">Alle Fächer</option>
+              <hr />
+              {[...currentFächer].map((fach) => (
+                <option key={fach} value={fach}>
+                  {fach}
+                </option>
+              ))}
+            </select>
           </div>
           {TasksMapped.length == 0 ? <NoListItems /> : TasksMapped}
         </div>
@@ -112,6 +129,8 @@ function TaskList({ tasks, setTasks }) {
           dialogEditRef={dialogEditRef}
           tasks={tasks}
           setTasks={setTasks}
+          fächer={fächer}
+          setFächer={setFächer}
           taskID={editingTaskId}
         />
       </>
