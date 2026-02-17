@@ -102,13 +102,29 @@ function TaskList({ tasks, setTasks, fächer, setFächer }) {
             />
             <span>Filter: </span>
             {finishedFilterType ? (
-              <button onClick={() => setFinishedFilterType(false)}>
-                fertige Aufgaben
-              </button>
+              <div className="buttonRow">
+                <button onClick={() => setFinishedFilterType(false)}>
+                  aktuelle Aufgaben
+                </button>
+                <button
+                  onClick={() => setFinishedFilterType(true)}
+                  className="selectedFilter"
+                >
+                  erledigte Aufgaben
+                </button>
+              </div>
             ) : (
-              <button onClick={() => setFinishedFilterType(true)}>
-                aktuelle Aufgaben
-              </button>
+              <div className="buttonRow">
+                <button
+                  onClick={() => setFinishedFilterType(false)}
+                  className="selectedFilter"
+                >
+                  aktuelle Aufgaben
+                </button>
+                <button onClick={() => setFinishedFilterType(true)}>
+                  erledigte Aufgaben
+                </button>
+              </div>
             )}
             <select
               value={selectedFach}
