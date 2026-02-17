@@ -1,6 +1,13 @@
 import { useRef, useEffect, useState } from "react";
 
-function EditTaskModal({ dialogEditRef, tasks, setTasks, taskID }) {
+function EditTaskModal({
+  dialogEditRef,
+  tasks,
+  setTasks,
+  fächer,
+  setFächer,
+  taskID,
+}) {
   const fachRef = useRef();
   const startWeekRef = useRef();
   const endWeekRef = useRef();
@@ -27,6 +34,10 @@ function EditTaskModal({ dialogEditRef, tasks, setTasks, taskID }) {
       previousTasks.filter((task) => task.id !== taskID),
     );
 
+    setFächer((previousFächer) =>
+      previousFächer.filter((fach) => fach !== fachRef.current.value),
+    );
+
     descriptionRef.current.value = "";
     fachRef.current.value = "";
     startWeekRef.current.value = "";
@@ -49,6 +60,15 @@ function EditTaskModal({ dialogEditRef, tasks, setTasks, taskID }) {
     }
 
     console.log("CB value is: ", finishedRef.current.checked);
+
+    console.log(
+      "gefundene Fächer: ",
+      [...fächer].find((fach) => fach == fachRef.current.value),
+    );
+    if ([...fächer].find((fach) => fach == fachRef.current.value) == null) {
+      console.log("neues Fach ins Array speichern");
+      setFächer([...fächer, fachRef.current.value]);
+    }
 
     let newTask = {
       description: descriptionRef.current.value,
@@ -78,12 +98,16 @@ function EditTaskModal({ dialogEditRef, tasks, setTasks, taskID }) {
       <input ref={fachRef} type="text" placeholder="Fach (Lehrer)" />
       <input ref={startWeekRef} type="text" placeholder="Lernwoche Start" />
       <input ref={endWeekRef} type="text" placeholder="Lernwoche Ende" />
+
       <textarea
         ref={descriptionRef}
         placeholder="Aufgaben Beschreibung"
       ></textarea>
-      <input ref={finishedRef} type="checkbox" />
-      <span>Erledigt</span>
+
+      <div>
+        <input ref={finishedRef} type="checkbox" />
+        <span>Erledigt</span>
+      </div>
 
       <div className="buttonRow">
         <form method="dialog">
