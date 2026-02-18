@@ -12,7 +12,9 @@ function TaskList({ tasks, setTasks, fächer, setFächer }) {
   const [selectedWeek, setSelectedWeek] = useState("all");
 
   //lists for select filters
-  const currentFächer = [...new Set(tasks.map((task) => task.fach))];
+  const currentFächer = [...new Set(tasks.map((task) => task.fach))].sort(
+    (a, b) => a.localeCompare(b),
+  );
   const currentWeeks = [...new Set(tasks.flatMap((task) => task.weeks))].sort(
     (a, b) => a - b,
   );
