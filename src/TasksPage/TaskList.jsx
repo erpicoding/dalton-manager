@@ -13,7 +13,9 @@ function TaskList({ tasks, setTasks, fächer, setFächer }) {
 
   //lists for select filters
   const currentFächer = [...new Set(tasks.map((task) => task.fach))];
-  const currentWeeks = [...new Set(tasks.flatMap((task) => task.weeks))];
+  const currentWeeks = [...new Set(tasks.flatMap((task) => task.weeks))].sort(
+    (a, b) => a - b,
+  );
   console.log("currentWeekss: ", currentWeeks);
 
   const [editingTaskId, setEditingTaskId] = useState(null);
