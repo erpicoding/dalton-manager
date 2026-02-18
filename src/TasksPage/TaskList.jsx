@@ -8,13 +8,17 @@ function TaskList({ tasks, setTasks, fächer, setFächer }) {
 
   const [finishedFilterType, setFinishedFilterType] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
-
-  const currentFächer = [...new Set(tasks.map((task) => task.fach))];
-
   const [selectedFach, setSelectedFach] = useState("all");
+  const [selectedWeek, setSelectedWeek] = useState("all");
+
+  //lists for select filters
+  const currentFächer = [...new Set(tasks.map((task) => task.fach))];
+  const currentWeeks = [...new Set(tasks.flatMap((task) => task.weeks))];
+  console.log("currentWeekss: ", currentWeeks);
+
   const [editingTaskId, setEditingTaskId] = useState(null);
 
-  //text Unterstreichen beim Suchen
+  //text als span.highlight beim Suchen
   function highlightText(text, searchTerm) {
     if (!searchTerm) return text;
 
@@ -47,6 +51,11 @@ function TaskList({ tasks, setTasks, fächer, setFächer }) {
     let TasksMapped = [...tasks]
       .filter((task) => task.finished == finishedFilterType)
       .filter((task) => task.fach == selectedFach || selectedFach == "all")
+      .filter(
+        (task) =>
+          task.weeks.some((week) => week == selectedWeek) ||
+          selectedWeek === "all",
+      )
       .filter(
         (task) =>
           searchTerm === "" ||
@@ -135,6 +144,18 @@ function TaskList({ tasks, setTasks, fächer, setFächer }) {
               {[...currentFächer].map((fach) => (
                 <option key={fach} value={fach}>
                   {fach}
+                </option>
+              ))}
+            </select>
+            <select
+              value={selectedWeek}
+              onChange={(e) => setSelectedWeek(e.target.value)}
+            >
+              <option value="all">Alle LW</option>
+              <hr />
+              {[...currentWeeks].map((week) => (
+                <option key={week} value={week}>
+                  {week}
                 </option>
               ))}
             </select>
