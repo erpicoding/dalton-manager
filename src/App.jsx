@@ -10,18 +10,18 @@ import LoginPage from "./LoginPage/LoginPage.jsx";
 function App() {
   return (
     <>
-      <Header />
-      <main>
-        <BrowserRouter>
+      <BrowserRouter>
+        <Header />
+        <main>
           <Routes>
             <Route path="/" element={<TasksPage />} />
             <Route path="/timetable" element={<TimetablePage />} />
             <Route path="/settings" element={<SettingsPage />} />
             <Route path="/login" element={<LoginPage />} />
           </Routes>
-        </BrowserRouter>
-      </main>
-      <Footer />
+        </main>
+        <Footer />
+      </BrowserRouter>
     </>
   );
 }

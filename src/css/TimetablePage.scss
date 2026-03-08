@@ -1,0 +1,115 @@
+@use "var" as *;
+
+.weekSelect {
+  display: flex;
+  width: 100%;
+  padding: 16px 0;
+
+  justify-content: center;
+}
+
+.week {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .day {
+    display: flex;
+    flex-direction: row;
+    p {
+      font-size: 20px;
+      line-height: 32px;
+    }
+    p.stundeLabel {
+      width: 200px;
+      margin: 8px;
+      text-align: center;
+    }
+    p.dayLabel {
+      width: 120px;
+      margin: 8px;
+      text-align: end;
+    }
+  }
+}
+
+.customSelect {
+  display: block;
+
+  width: 200px;
+  margin: 8px;
+
+  .selectButton {
+    height: 32px;
+
+    padding: 2px;
+
+    background-color: $bg2-middle;
+    color: $txt1-main !important;
+    border: 2px solid $border;
+    border-radius: 8px;
+
+    font-size: 18px;
+    line-height: 30px;
+    text-align: center;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .selectList {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+
+    z-index: 30;
+
+    max-height: 60vh;
+    padding: 8px;
+
+    background-color: $bg2-middle;
+    color: $txt1-main !important;
+    border: 2px solid $border;
+    border-radius: 8px;
+
+    .selectGrid {
+      display: grid;
+      grid-template-columns: repeat(3, 200px);
+
+      .selectItem {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        height: 16px;
+        padding: 8px;
+        margin: 2px;
+
+        border-radius: 8px;
+
+        background-color: $bg3-light;
+        color: $txt1-main !important;
+
+        font-size: 18px;
+        line-height: 18px;
+
+        &:hover {
+          opacity: 0.75;
+          cursor: pointer;
+        }
+      }
+    }
+    .selectButtonRow {
+      width: calc(100% - 16px);
+      justify-content: space-between;
+    }
+  }
+}
+.backdrop {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+
+  z-index: 20;
+  inset: 0;
+  background: hsla(0, 0%, 0%, 0.75);
+}
