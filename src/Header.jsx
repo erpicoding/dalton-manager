@@ -12,7 +12,7 @@ function Header() {
         </a>
         <a href="/timetable">
           <img src={timetableIcon} alt="Icon" />
-          Stundenplan
+          Dalton-Stunden
         </a>
         <a href="/settings">
           <img src={settingsIcon} alt="Icon" />

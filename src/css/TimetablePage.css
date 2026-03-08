@@ -1,0 +1,97 @@
+.weekSelect {
+  display: flex;
+  width: 100%;
+  padding: 16px 0;
+  justify-content: center;
+}
+
+.week {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.week .day {
+  display: flex;
+  flex-direction: row;
+}
+.week .day p {
+  font-size: 20px;
+  line-height: 32px;
+}
+.week .day p.stundeLabel {
+  width: 200px;
+  margin: 8px;
+  text-align: center;
+}
+.week .day p.dayLabel {
+  width: 120px;
+  margin: 8px;
+  text-align: end;
+}
+
+.customSelect {
+  display: block;
+  width: 200px;
+  margin: 8px;
+}
+.customSelect .selectButton {
+  height: 32px;
+  padding: 2px;
+  background-color: hsl(0, 0%, 10%);
+  color: hsl(0, 0%, 95%) !important;
+  border: 2px solid hsl(0, 0%, 30%);
+  border-radius: 8px;
+  font-size: 18px;
+  line-height: 30px;
+  text-align: center;
+}
+.customSelect .selectButton:hover {
+  cursor: pointer;
+}
+.customSelect .selectList {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 30;
+  max-height: 60vh;
+  padding: 8px;
+  background-color: hsl(0, 0%, 10%);
+  color: hsl(0, 0%, 95%) !important;
+  border: 2px solid hsl(0, 0%, 30%);
+  border-radius: 8px;
+}
+.customSelect .selectList .selectGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 200px);
+}
+.customSelect .selectList .selectGrid .selectItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 16px;
+  padding: 8px;
+  margin: 2px;
+  border-radius: 8px;
+  background-color: hsl(0, 0%, 20%);
+  color: hsl(0, 0%, 95%) !important;
+  font-size: 18px;
+  line-height: 18px;
+}
+.customSelect .selectList .selectGrid .selectItem:hover {
+  opacity: 0.75;
+  cursor: pointer;
+}
+.customSelect .selectList .selectButtonRow {
+  width: calc(100% - 16px);
+  justify-content: space-between;
+}
+
+.backdrop {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 20;
+  inset: 0;
+  background: hsla(0, 0%, 0%, 0.75);
+}/*# sourceMappingURL=TimetablePage.css.map */
