@@ -5,7 +5,7 @@ function Footer() {
         &copy; <a href="https://erpicoding.de">Erpi Coding</a> - 2026
         {/* & (<a href="https://github.com/domi207">Domi207</a>) */}
       </p>
-      <p>Version: Beta 0.7.1</p>
+      <p>Version: Beta 0.7.2</p>
       <p>Instabile Version</p>
     </footer>
   );
