@@ -54,11 +54,10 @@
   top: 50%;
   transform: translateX(-50%) translateY(-50%);
   z-index: 30;
-  max-height: 60vh;
   padding: 8px;
   background-color: hsl(0, 0%, 10%);
   color: hsl(0, 0%, 95%) !important;
-  border: 2px solid hsl(0, 0%, 30%);
+  border: 4px solid hsl(0, 0%, 30%);
   border-radius: 8px;
 }
 .customSelect .selectList .selectGrid {
@@ -69,12 +68,11 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  height: 16px;
+  height: 20px;
   padding: 8px;
   margin: 2px;
   border-radius: 8px;
   background-color: hsl(0, 0%, 20%);
-  color: hsl(0, 0%, 95%) !important;
   font-size: 18px;
   line-height: 18px;
 }
@@ -82,9 +80,51 @@
   opacity: 0.75;
   cursor: pointer;
 }
+.customSelect .selectList .selectGrid .stillarbeit {
+  background-color: #ffff5f;
+}
+.customSelect .selectList .selectGrid .stillarbeit * {
+  color: hsl(0, 0%, 10%);
+}
+.customSelect .selectList .selectGrid .keineGruppen {
+  background-color: #ffd1b9;
+}
+.customSelect .selectList .selectGrid .keineGruppen * {
+  color: hsl(0, 0%, 10%);
+}
+.customSelect .selectList .selectGrid .oberstufe {
+  background-color: #bfefaa;
+}
+.customSelect .selectList .selectGrid .oberstufe * {
+  color: hsl(0, 0%, 10%);
+}
 .customSelect .selectList .selectButtonRow {
   width: calc(100% - 16px);
   justify-content: space-between;
+}
+.customSelect .selectList .legende {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.customSelect .selectList .legende span {
+  margin: 16px 16px 16px 8px;
+  line-height: 16px;
+}
+.customSelect .selectList .legende span div {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+}
+.customSelect .selectList .legende span .stillarbeit {
+  background-color: #ffff5f;
+}
+.customSelect .selectList .legende span .keineGruppen {
+  background-color: #ffd1b9;
+}
+.customSelect .selectList .legende span .oberstufe {
+  background-color: #bfefaa;
 }
 
 .backdrop {
