@@ -73,12 +73,24 @@
   margin: 2px;
   border-radius: 8px;
   background-color: hsl(0, 0%, 20%);
-  font-size: 18px;
-  line-height: 18px;
 }
 .customSelect .selectList .selectGrid .selectItem:hover {
   opacity: 0.75;
   cursor: pointer;
+}
+.customSelect .selectList .selectGrid .selectItem svg {
+  fill: hsl(0, 0%, 5%);
+}
+.customSelect .selectList .selectGrid .selectItem .favorite {
+  fill: rgb(255, 196, 0);
+}
+.customSelect .selectList .selectGrid .selectItem div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 85%;
+  font-size: 18px;
+  line-height: 18px;
 }
 .customSelect .selectList .selectGrid .stillarbeit {
   background-color: #ffff5f;

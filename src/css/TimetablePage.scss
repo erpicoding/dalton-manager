@@ -87,12 +87,25 @@
 
         background-color: $bg3-light;
 
-        font-size: 18px;
-        line-height: 18px;
-
         &:hover {
           opacity: 0.75;
           cursor: pointer;
+        }
+        svg {
+          fill: $bg1-dark;
+        }
+        .favorite {
+          fill: rgb(255, 196, 0);
+        }
+        div {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+
+          width: 85%;
+
+          font-size: 18px;
+          line-height: 18px;
         }
       }
       .stillarbeit {
