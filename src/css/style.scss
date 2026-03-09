@@ -111,6 +111,9 @@ button {
   img {
     height: 32px;
   }
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .buttonRow {

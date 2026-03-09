@@ -8,10 +8,21 @@ function FachSelect({ optionsList, selectedOption, setSelectedOption }) {
     setIsOpen(false);
   }
 
+  function roomColor(room) {
+    if (room == "J109") {
+      return "stillarbeit";
+    } else if (room == "K109") {
+      return "keineGruppen";
+    } else if (room == "J106" || room == "J014 Media") {
+      return "oberstufe";
+    } else {
+      return "";
+    }
+  }
   const mappedOptionList = optionsList.map((option) => (
     <div
       key={option.teacher + option.room}
-      className="selectItem"
+      className={"selectItem " + roomColor(option.room)}
       onClick={() => selectOptionAndClose(option.teacher + " - " + option.room)}
     >
       <b>{option.teacher}</b>
@@ -35,19 +46,32 @@ function FachSelect({ optionsList, selectedOption, setSelectedOption }) {
               {/* EA Option */}
               <div
                 className="selectItem"
-                onClick={() => selectOptionAndClose("Arbeiten ohne Lehrer")}
+                onClick={() => selectOptionAndClose("Freiarbeitsbereich")}
               >
-                <span>Arbeiten ohne Lehrer</span>
+                <span>Freiarbeitsbereich</span>
               </div>
               {/* keine Stunde Option */}
               <div
                 className="selectItem"
-                onClick={() => selectOptionAndClose("keine Stunde")}
+                onClick={() => selectOptionAndClose(" ")}
               >
                 <span>keine Stunde</span>
               </div>
             </div>
-
+            <div className="legende">
+              <span>
+                <b>Legende: </b>
+              </span>
+              <span>
+                <div className="stillarbeit"></div> Stillarbeit
+              </span>
+              <span>
+                <div className="keineGruppen"></div> Keine Gruppenarbeit
+              </span>
+              <span>
+                <div className="oberstufe"></div> Nur Oberstufe
+              </span>
+            </div>
             <div className="buttonRow selectButtonRow">
               <button
                 onClick={() => selectOptionAndClose("")}
