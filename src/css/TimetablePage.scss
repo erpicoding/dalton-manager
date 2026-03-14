@@ -108,6 +108,9 @@
           line-height: 18px;
         }
       }
+      .selected {
+        box-shadow: inset 0 0 0px 2px $btn-imp-2-border;
+      }
       .stillarbeit {
         background-color: #ffff5f;
         * {

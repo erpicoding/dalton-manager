@@ -183,7 +183,7 @@ function WeekA({
             )
           }
         />
-        <p className="stundeLabel">keine Stunde</p>
+        <p className="stundeLabel"></p>
       </div>
     </div>
   );
