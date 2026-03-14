@@ -21,13 +21,13 @@ function FachSelect({ optionsList, selectedOption, setSelectedOption }) {
 
   function roomColor(room) {
     if (room == "J109") {
-      return "stillarbeit";
+      return " stillarbeit ";
     } else if (room == "K109") {
-      return "keineGruppen";
+      return " keineGruppen ";
     } else if (room == "J106" || room == "J014 Media") {
-      return "oberstufe";
+      return " oberstufe ";
     } else {
-      return "";
+      return "non";
     }
   }
   function setFavorite(el, daltonStundeID) {
@@ -47,10 +47,19 @@ function FachSelect({ optionsList, selectedOption, setSelectedOption }) {
       return "favorite";
     }
   }
+  function checkSelection(daltonStundeID) {
+    if (selectedOption == daltonStundeID) {
+      return " selected";
+    }
+  }
   const mappedOptionList = optionsList.map((option) => (
     <div
       key={option.teacher + option.room}
-      className={"selectItem " + roomColor(option.room)}
+      className={
+        "selectItem " +
+        roomColor(option.room) +
+        checkSelection(option.teacher + " - " + option.room)
+      }
       onClick={() => selectOptionAndClose(option.teacher + " - " + option.room)}
     >
       <svg
@@ -84,14 +93,14 @@ function FachSelect({ optionsList, selectedOption, setSelectedOption }) {
               {mappedOptionList}
               {/* EA Option */}
               <div
-                className="selectItem"
+                className={"selectItem " + checkSelection("Freiarbeitsbereich")}
                 onClick={() => selectOptionAndClose("Freiarbeitsbereich")}
               >
                 <span>Freiarbeitsbereich</span>
               </div>
               {/* keine Stunde Option */}
               <div
-                className="selectItem"
+                className={"selectItem " + checkSelection(" ")}
                 onClick={() => selectOptionAndClose(" ")}
               >
                 <span>keine Stunde</span>
