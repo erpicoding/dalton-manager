@@ -32,7 +32,7 @@ nav {
   min-width: 520px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 nav a {
   display: inline-flex;
@@ -78,10 +78,35 @@ footer a {
   color: hsl(0, 0%, 95%);
 }
 
+dialog.info {
+  max-width: 500px;
+  margin: auto;
+  overflow-x: hidden;
+  background-color: hsl(0, 0%, 10%);
+  border: 4px solid hsl(0, 0%, 30%);
+  border-radius: 16px;
+  padding: 16px;
+}
+dialog.info h2 {
+  color: hsl(0, 0%, 95%);
+  padding-bottom: 8px;
+  text-align: center;
+}
+dialog.info::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+dialog.info:focus {
+  outline: none;
+}
+
 p {
   margin: 8px;
   color: hsl(0, 0%, 95%);
   white-space: pre-line;
+}
+
+a.blue {
+  color: rgb(0, 149, 255);
 }
 
 button {
@@ -102,6 +127,11 @@ button img {
 }
 button:hover {
   cursor: pointer;
+}
+
+.ButtonRowBorders {
+  width: calc(100% - 16px);
+  justify-content: space-between;
 }
 
 .buttonRow {

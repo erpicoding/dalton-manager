@@ -34,7 +34,7 @@ nav {
   min-width: 520px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   a {
     display: inline-flex;
     flex-direction: row;
@@ -86,11 +86,40 @@ footer {
   }
 }
 
+dialog.info {
+  max-width: 500px;
+  margin: auto;
+  overflow-x: hidden;
+
+  background-color: $bg2-middle;
+  border: 4px solid $border;
+  border-radius: 16px;
+  padding: 16px;
+
+  h2 {
+    color: $txt1-main;
+    padding-bottom: 8px;
+    text-align: center;
+  }
+
+  &::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
 p {
   margin: 8px;
   color: $txt1-main;
   white-space: pre-line;
 }
+
+a.blue {
+  color: $btn-imp-2-border;
+}
+
 button {
   display: inline-flex;
   flex-direction: row;
@@ -116,6 +145,10 @@ button {
   }
 }
 
+.ButtonRowBorders {
+  width: calc(100% - 16px);
+  justify-content: space-between;
+}
 .buttonRow {
   display: inline-flex;
   flex-direction: row;
