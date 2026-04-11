@@ -39,6 +39,8 @@ function TaskList({ tasks, setTasks, fächer, setFächer }) {
     );
   }
 
+  const prioColors = ["#7D3C3C", "#9E6349", "#9E8B4F", "#6B704F", "#3E5C49"];
+
   function finishTask(taskID) {
     setTasks((previousTasks) =>
       previousTasks.map((task) =>
@@ -53,6 +55,10 @@ function TaskList({ tasks, setTasks, fächer, setFächer }) {
 
   if (tasks !== null) {
     let TasksMapped = [...tasks]
+      .map((task) => ({
+        ...task,
+        prio: task.prio ?? 3,
+      }))
       .filter((task) => task.finished == finishedFilterType)
       .filter((task) => task.fach == selectedFach || selectedFach == "all")
       .filter(
@@ -70,8 +76,13 @@ function TaskList({ tasks, setTasks, fächer, setFächer }) {
       )
       .sort((a, b) => a.weeks.length - b.weeks.length)
       .sort((a, b) => a.weeks[0] - b.weeks[0])
+      .sort((a, b) => b.prio - a.prio)
       .map((task) => (
-        <div className="task" key={task.id}>
+        <div
+          key={task.id}
+          className="task"
+          style={{ border: "2px solid " + prioColors[task.prio - 1] }}
+        >
           <h3>
             <span className="fachTitel">
               {highlightText(task.fach, searchTerm)}

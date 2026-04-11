@@ -29,10 +29,10 @@ function Footer() {
           &copy; <a href="https://erpicoding.de">Erpi Coding</a> - 2026
           {/* & (<a href="https://github.com/domi207">Domi207</a>) */}
         </p>
-        <p>Version: Beta 0.8</p>
+        <p>Version: Beta 0.9</p>
         <a href="/?info">Was sind Dalton-Aufgaben?</a>
       </footer>
-      {/* Informations Modal */}
+      {/* Information Modal */}
       <dialog className="info" ref={dialogInfoRef}>
         <h2>Was sind Dalton-Aufgaben?</h2>
         <p>

@@ -82,3 +82,44 @@
     background-color: rgba(0, 0, 0, 0.5);
   }
 }
+
+.prioRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 42%; // die einzige Zahl, die hier gut aussieht
+
+  b {
+    flex-grow: 2;
+    padding-left: 16px;
+    color: $txt2-sub;
+  }
+}
+
+.prio {
+  margin: 2px;
+  background-color: hsla(0, 0%, 0%, 0);
+
+  border: none;
+
+  &:focus {
+    outline: none;
+    background-color: hsl(0, 0%, 15%);
+  }
+  &:hover {
+    background-color: hsl(0, 0%, 15%);
+  }
+  img {
+    width: 20px;
+    filter: brightness(1.5);
+  }
+}
+
+.prioSelected {
+  // img {
+  //   filter: grayscale(0) brightness(1.5);
+  // }
+  background-color: hsl(0, 0%, 20%) !important;
+}
