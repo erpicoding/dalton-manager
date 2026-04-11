@@ -1,4 +1,10 @@
-import { useRef } from "react";
+import prio1 from "/src/assets/prio 1.svg";
+import prio2 from "/src/assets/prio 2.svg";
+import prio3 from "/src/assets/prio 3.svg";
+import prio4 from "/src/assets/prio 4.svg";
+import prio5 from "/src/assets/prio 5.svg";
+
+import { useRef, useState } from "react";
 
 import { newID } from "/src/functions.jsx";
 
@@ -7,6 +13,8 @@ function NewTaskModal({ dialogNewRef, tasks, setTasks, fächer, setFächer }) {
   const startWeekRef = useRef();
   const endWeekRef = useRef();
   const descriptionRef = useRef();
+
+  const [selectedPrio, setSelectedPrio] = useState(3);
 
   function createTask() {
     const startWeek = Number(startWeekRef.current.value);
@@ -21,19 +29,11 @@ function NewTaskModal({ dialogNewRef, tasks, setTasks, fächer, setFächer }) {
       weeks.push(i);
     }
 
-    console.log(
-      "gefundene Fächer: ",
-      [...fächer].find((fach) => fach == fachRef.current.value),
-    );
-    if ([...fächer].find((fach) => fach == fachRef.current.value) == null) {
-      console.log("neues Fach ins Array speichern");
-      setFächer([...fächer, fachRef.current.value]);
-    }
-
     let newTask = {
       description: descriptionRef.current.value,
       fach: fachRef.current.value,
       weeks: weeks,
+      prio: selectedPrio,
       finished: false,
       id: newID(),
     };
@@ -56,6 +56,45 @@ function NewTaskModal({ dialogNewRef, tasks, setTasks, fächer, setFächer }) {
         ref={descriptionRef}
         placeholder="Aufgaben Beschreibung"
       ></textarea>
+
+      <div className="prioRow">
+        <b>Priorität:</b>
+        <button
+          title="Sehr hoch"
+          onClick={() => setSelectedPrio(1)}
+          className={selectedPrio == 1 ? "prio prioSelected" : "prio"}
+        >
+          <img src={prio1} alt="1" />
+        </button>
+        <button
+          title="Hoch"
+          onClick={() => setSelectedPrio(2)}
+          className={selectedPrio == 2 ? "prio prioSelected" : "prio"}
+        >
+          <img src={prio2} alt="2" />
+        </button>
+        <button
+          title="Mittel"
+          onClick={() => setSelectedPrio(3)}
+          className={selectedPrio == 3 ? "prio prioSelected" : "prio"}
+        >
+          <img src={prio3} alt="3" />
+        </button>
+        <button
+          title="Niedrig"
+          onClick={() => setSelectedPrio(4)}
+          className={selectedPrio == 4 ? "prio prioSelected" : "prio"}
+        >
+          <img src={prio4} alt="4" />
+        </button>
+        <button
+          title="Sehr niedrig"
+          onClick={() => setSelectedPrio(5)}
+          className={selectedPrio == 5 ? "prio prioSelected" : "prio"}
+        >
+          <img src={prio5} alt="5" />
+        </button>
+      </div>
 
       <div className="buttonRow">
         <form method="dialog">
