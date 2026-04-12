@@ -18,35 +18,19 @@ function TaskPage() {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
-  const [fächer, setFächer] = useState(() => {
-    const raw = localStorage.getItem("fächer");
-    return raw ? JSON.parse(raw) : [];
-  });
-  useEffect(() => {
-    localStorage.setItem("fächer", JSON.stringify(fächer));
-  }, [fächer]);
-
   return (
     <>
       <div className="buttonRow">
-        <button className="buttonImp" onClick={openModal}>
+        <button className="buttonImp createNew" onClick={openModal}>
           <img src={newTaskIcon} alt="Icon" />
           Neue Dalton-Aufgabe
         </button>
-        {/* <button className="buttonNormal">Dalton-Plan hochladen</button> */}
       </div>
-      <TaskList
-        tasks={tasks}
-        setTasks={setTasks}
-        fächer={fächer}
-        setFächer={setFächer}
-      />
+      <TaskList tasks={tasks} setTasks={setTasks} />
       <NewTaskModal
         dialogNewRef={dialogNewRef}
         tasks={tasks}
         setTasks={setTasks}
-        fächer={fächer}
-        setFächer={setFächer}
       />
     </>
   );

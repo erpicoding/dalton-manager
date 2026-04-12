@@ -24,7 +24,7 @@ header {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 8px;
+  padding: 12px;
 
   background-color: $bg2-middle;
 }
@@ -40,6 +40,9 @@ nav {
     flex-direction: row;
     align-items: center;
 
+    padding-right: 4px;
+    border-radius: 8px;
+
     color: white;
     line-height: 40px;
     font-size: 20px;
@@ -48,6 +51,9 @@ nav {
     img {
       height: 40px;
     }
+  }
+  .currentPath {
+    background-color: $btn-imp-1-bg;
   }
 }
 .button-login {
