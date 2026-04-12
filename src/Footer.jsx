@@ -27,9 +27,12 @@ function Footer() {
       <footer>
         <p>
           &copy; <a href="https://erpicoding.de">Erpi Coding</a> - 2026
-          {/* & (<a href="https://github.com/domi207">Domi207</a>) */}
         </p>
-        <p>Version: Beta 0.9</p>
+        <p>Version: Beta 0.9.1</p>
+        <p>
+          Fehler melden/Kontakt: <br />
+          erik@erpicoding.de
+        </p>
         <a href="/?info">Was sind Dalton-Aufgaben?</a>
       </footer>
       {/* Information Modal */}

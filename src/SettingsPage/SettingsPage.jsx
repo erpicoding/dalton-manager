@@ -1,13 +1,20 @@
 function SettingsPage() {
+  function deleteAll() {
+    if (
+      confirm(
+        "⚠️⚠️⚠️ ALLES wird gelöcht ⚠️⚠️⚠️ \nEine Wiederherstellung der Daten ist nicht möglich.",
+      )
+    ) {
+      localStorage.clear();
+      location.reload();
+    }
+  }
   return (
     <>
-      <h1>Einstellungen</h1>
-      <div className="warning">
-        <p>
-          Einstellungen noch nicht Verfügbar.
-          <br />
-          Dieses Programm ist noch in der Entwicklungsphase.
-        </p>
+      <div className="buttonRow">
+        <button className="buttonBad" onClick={() => deleteAll()}>
+          Alle Daten Löschen!
+        </button>
       </div>
     </>
   );

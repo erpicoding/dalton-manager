@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import NoListItems from "./NoListItems.jsx";
 import EditTaskModal from "./EditTaskModal.jsx";
 
-function TaskList({ tasks, setTasks, fächer, setFächer }) {
+function TaskList({ tasks, setTasks }) {
   const dialogEditRef = useRef();
 
   const [finishedFilterType, setFinishedFilterType] = useState(false);
@@ -106,9 +106,16 @@ function TaskList({ tasks, setTasks, fächer, setFächer }) {
             <button onClick={() => editTask(task.id)} className="buttonNormal">
               Bearbeiten
             </button>
-            <button onClick={() => finishTask(task.id)} className="buttonGood">
-              &#10004;
-            </button>
+            {task.finished ? (
+              ""
+            ) : (
+              <button
+                onClick={() => finishTask(task.id)}
+                className="buttonGood"
+              >
+                &#10004;
+              </button>
+            )}
           </div>
         </div>
       ));
@@ -181,8 +188,6 @@ function TaskList({ tasks, setTasks, fächer, setFächer }) {
           dialogEditRef={dialogEditRef}
           tasks={tasks}
           setTasks={setTasks}
-          fächer={fächer}
-          setFächer={setFächer}
           taskID={editingTaskId}
         />
       </>
