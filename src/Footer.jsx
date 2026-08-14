@@ -28,7 +28,7 @@ function Footer() {
         <p>
           &copy; <a href="https://erpicoding.de">Erpi Coding</a> - 2026
         </p>
-        <p>Version: Beta 0.9.1</p>
+        <p>Version: Beta 0.9.2</p>
         <p>
           Fehler melden/Kontakt: <br />
           erik@erpicoding.de

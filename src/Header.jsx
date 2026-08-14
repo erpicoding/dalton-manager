@@ -22,15 +22,16 @@ function Header() {
         </a>
         <a
           href="/settings"
+          target="_self"
           className={location.pathname == "/settings" ? "currentPath" : ""}
         >
           <img src={settingsIcon} alt="Icon" />
           Einstellungen
         </a>
       </nav>
-      {/* <a href="/login">
-        <button className="button-login">Login per Untis</button>
-      </a> */}
+      <a href="https://dalton.erpicoding.de/login">
+        <button className="button-login">Login</button>
+      </a>
     </header>
   );
 }

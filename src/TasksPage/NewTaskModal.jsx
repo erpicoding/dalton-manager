@@ -49,8 +49,13 @@ function NewTaskModal({ dialogNewRef, tasks, setTasks, fächer, setFächer }) {
     <dialog id="newTaskModal" ref={dialogNewRef}>
       <h3>Neue Dalton-Aufgabe</h3>
 
-      <input ref={fachRef} type="text" placeholder="Fach (Lehrer)" />
-      <input ref={startWeekRef} type="text" placeholder="Lernwoche Start" />
+      <input ref={fachRef} type="text" placeholder="Fach (Lehrer)" required />
+      <input
+        ref={startWeekRef}
+        type="text"
+        placeholder="Lernwoche Start"
+        required
+      />
       <input ref={endWeekRef} type="text" placeholder="Lernwoche Ende" />
       <textarea
         ref={descriptionRef}
